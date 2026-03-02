@@ -1,0 +1,101 @@
+.promptCard {
+  margin: 0 8px 2px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s;
+  position: relative;
+}
+
+.promptCard:hover {
+  background: var(--card);
+}
+
+.promptCardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pinIcon {
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.promptCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.metaTag {
+  background: var(--bg);
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.metaTime {
+  margin-left: auto;
+  font-size: 11px;
+}
+
+.promptActions {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  background: var(--card);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 2px;
+}
+
+.promptCard:hover .promptActions {
+  opacity: 1;
+}
+
+.actBtn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background 0.12s, color 0.12s;
+}
+
+.actBtn:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.actBtnDanger:hover {
+  color: var(--danger);
+}
+
+.promptExpand {
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  border-left: 3px solid var(--accent);
+}

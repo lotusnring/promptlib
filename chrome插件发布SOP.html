@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 2.5cm 2cm; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1D1D1F;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+    color: #5B21B6;
+  }
+  .subtitle {
+    text-align: center;
+    color: #86868B;
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #5B21B6;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #E5E5E5;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+  p, li { margin-bottom: 6px; }
+  ul, ol { padding-left: 20px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #E5E5E5;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  th {
+    background: #F5F5F7;
+    font-weight: 600;
+  }
+  code {
+    background: #F5F5F7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 12px;
+  }
+  .code-block {
+    background: #1D1D1F;
+    color: #E5E5E5;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 12px;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  .note {
+    background: #FFF3CD;
+    border-left: 4px solid #856404;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+  }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid #F5F5F7;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .checklist li::before {
+    content: "☐";
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .step-num {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: #5B21B6;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<h1>Chrome 插件发布 SOP</h1>
+<p class="subtitle">PromptLib — 从本地开发到 Chrome Web Store 上架全流程</p>
+
+<h2>一、注册开发者账号</h2>
+
+<ol>
+  <li>打开 Chrome 开发者控制台：<code>https://chrome.google.com/webstore/devconsole</code></li>
+  <li>使用你的 Google 账号登录</li>
+  <li>支付一次性注册费 <strong>$5</strong>（支持信用卡 / 借记卡）</li>
+  <li>注册完成后即可进入开发者控制台</li>
+</ol>
+
+<div class="note">
+  <strong>注意：</strong>注册费是一次性的，支付后可以发布无限数量的插件。
+</div>
+
+<h2>二、准备上架材料</h2>
+
+<h3>必填项</h3>
+
+<table>
+  <tr><th>材料</th><th>要求</th></tr>
+  <tr><td>扩展 zip 包</td><td>将 <code>dist/</code> 目录<strong>内部文件</strong>打包为 <code>.zip</code>（不是 dist 文件夹本身）</td></tr>
+  <tr><td>名称</td><td>PromptLib</td></tr>
+  <tr><td>简短描述</td><td>最多 132 个字符，例如：「帮助 AI 大模型使用者在浏览器内实时管理和调用提示词模板」</td></tr>
+  <tr><td>详细描述</td><td>功能介绍、使用方法，建议 200-500 字</td></tr>
+  <tr><td>商店图标</td><td>128×128 PNG</td></tr>
+  <tr><td>截图</td><td>至少 1 张，尺寸 1280×800 或 640×400，展示插件实际使用界面</td></tr>
+  <tr><td>类别</td><td>选择「生产力工具 (Productivity)」</td></tr>
+  <tr><td>语言</td><td>中文（简体）</td></tr>
+</table>
+
+<h3>可选但建议提供</h3>
+
+<table>
+  <tr><th>材料</th><th>说明</th></tr>
+  <tr><td>宣传图（小）</td><td>440×280 PNG，商店列表展示用</td></tr>
+  <tr><td>隐私政策</td><td>说明「本插件不收集任何用户数据，所有数据存储在用户本地浏览器」</td></tr>
+</table>
+
+<h2>三、打包</h2>
+
+<p>在项目根目录执行以下命令：</p>
+
+<div class="code-block">
+npm run build<br>
+cd dist<br>
+zip -r ../promptlib.zip .
+</div>
+
+<p>生成的 <code>promptlib.zip</code> 即为待上传文件。</p>
+
+<div class="note">
+  <strong>注意：</strong>打包前请确认 <code>manifest.json</code> 中的 <code>version</code> 字段。每次更新都需要递增版本号（如 1.0.0 → 1.0.1）。
+</div>
+
+<h2>四、提交审核</h2>
+
+<ol>
+  <li>在开发者控制台点击「新建项目」</li>
+  <li>上传 <code>promptlib.zip</code> 文件</li>
+  <li>填写商店列表信息（名称、描述、截图等）</li>
+  <li>设置分发范围：
+    <ul>
+      <li><strong>公开</strong> — 所有人可在商店搜索并安装</li>
+      <li><strong>不公开</strong> — 仅有直接链接的人可安装（适合小范围分享）</li>
+    </ul>
+  </li>
+  <li>点击「提交审核」</li>
+</ol>
+
+<h2>五、等待审核</h2>
+
+<ul>
+  <li>审核周期通常 <strong>1-3 个工作日</strong>，简单插件较快</li>
+  <li>审核通过后自动上架，你会收到邮件通知</li>
+  <li>如果被拒，邮件中会告知原因，修改后重新提交即可</li>
+</ul>
+
+<h2>六、分享给他人</h2>
+
+<p>审核通过后你会获得商店链接，格式如下：</p>
+
+<div class="code-block">
+https://chrome.google.com/webstore/detail/promptlib/xxxxxxxxxxxxxxxx
+</div>
+
+<p>将链接发给他人，对方点击链接 → 点击「添加至 Chrome」→ 完成安装。</p>
+
+<h2>七、后续版本更新</h2>
+
+<ol>
+  <li>修改代码</li>
+  <li>在 <code>manifest.json</code> 中递增 <code>version</code>（如 1.0.0 → 1.0.1）</li>
+  <li>执行 <code>npm run build</code> 并重新打包 zip</li>
+  <li>在开发者控制台上传新版本</li>
+  <li>提交审核，通过后所有已安装用户<strong>自动更新</strong></li>
+</ol>
+
+<div class="page-break"></div>
+
+<h2>Todo Checklist</h2>
+
+<ul class="checklist">
+  <li><span>注册 Chrome 开发者账号，支付 $5</span></li>
+  <li><span>制作 128×128 正式图标（替换当前占位图标）</span></li>
+  <li><span>制作商店截图（至少 1 张 1280×800）</span></li>
+  <li><span>撰写商店描述（简短描述 + 详细描述）</span></li>
+  <li><span>撰写隐私政策声明</span></li>
+  <li><span>确认 manifest.json 中的 version 字段</span></li>
+  <li><span>执行 <code>npm run build</code></span></li>
+  <li><span>进入 dist/ 目录，打包为 zip</span></li>
+  <li><span>在开发者控制台创建新项目，上传 zip</span></li>
+  <li><span>填写商店列表信息（名称、描述、截图、类别、语言）</span></li>
+  <li><span>选择分发范围（公开 / 不公开）</span></li>
+  <li><span>提交审核</span></li>
+  <li><span>审核通过后获取商店链接，分享给他人</span></li>
+</ul>
+
+</body>
+</html>

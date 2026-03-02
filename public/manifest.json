@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PromptLib",
+  "version": "1.0.0",
+  "description": "帮助 AI 大模型使用者在浏览器内实时管理和调用提示词模板",
+  "permissions": ["sidePanel", "storage"],
+  "side_panel": {
+    "default_path": "src/sidepanel.html"
+  },
+  "action": {
+    "default_title": "PromptLib"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  }
+}

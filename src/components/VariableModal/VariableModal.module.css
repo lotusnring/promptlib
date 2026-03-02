@@ -1,0 +1,86 @@
+.header {
+  padding: 20px 20px 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.body {
+  padding: 8px 20px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.promptTitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.formGroup {
+  margin-top: 12px;
+}
+
+.formGroup:first-of-type {
+  margin-top: 8px;
+}
+
+.varLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.varInput {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: var(--font);
+  outline: none;
+  color: var(--text);
+}
+
+.varInput:focus {
+  border-color: var(--accent);
+}
+
+.footer {
+  display: flex;
+  border-top: 1px solid var(--border);
+}
+
+.footerBtn {
+  flex: 1;
+  height: 44px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font);
+  color: var(--accent);
+  transition: background 0.12s;
+}
+
+.footerBtn:hover {
+  background: var(--bg);
+}
+
+.footerBtn + .footerBtn {
+  border-left: 1px solid var(--border);
+}
+
+.footerBtnMuted {
+  composes: footerBtn;
+  color: var(--text-secondary);
+}
+
+.footerBtnPrimary {
+  composes: footerBtn;
+  font-weight: 600;
+}

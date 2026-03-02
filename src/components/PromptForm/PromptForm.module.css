@@ -1,0 +1,138 @@
+.editHeader {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+
+.editHeaderTitle {
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+}
+
+.btnIcon {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background 0.15s;
+}
+
+.btnIcon:hover {
+  background: var(--bg);
+}
+
+.editBody {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.required {
+  color: var(--danger);
+}
+
+.formInput {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: var(--font);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  background: var(--card);
+}
+
+.formInput:focus {
+  border-color: var(--accent);
+}
+
+.formInput::placeholder {
+  color: #C7C7CC;
+}
+
+.textarea {
+  composes: formInput;
+  resize: vertical;
+  min-height: 200px;
+  line-height: 1.6;
+}
+
+.formHint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hintTag {
+  background: #FFF3CD;
+  color: #856404;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 11px;
+}
+
+.editFooter {
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+
+.btn {
+  flex: 1;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: opacity 0.15s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--accent);
+  color: #fff;
+}
+
+.btnSecondary {
+  composes: btn;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
