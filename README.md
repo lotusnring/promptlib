@@ -4,7 +4,7 @@
 >
 > A Chrome Side Panel extension for managing and using prompt templates with AI chatbots.
 
-![PromptLib 界面预览](WechatIMG51.png)
+![PromptLib 界面预览](preview.jpg)
 
 ---
 

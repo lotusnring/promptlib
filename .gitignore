@@ -1,3 +1,9 @@
 node_modules/
 dist/
 .DS_Store
+chrome插件发布SOP.html
+chrome插件发布SOP.pdf
+dist.crx
+dist.pem
+product_idea.md
+prototype.html
