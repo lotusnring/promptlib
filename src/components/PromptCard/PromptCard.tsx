@@ -81,6 +81,7 @@ export default function PromptCard({
         <div
           className={styles.promptExpand}
           dangerouslySetInnerHTML={{ __html: renderedContent }}
+          onClick={(e) => e.stopPropagation()}
         />
       )}
     </div>
